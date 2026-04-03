@@ -19,7 +19,6 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-let tasks = []; // temporary (we'll replace with DB later)
 
 // Show tasks
 app.get("/", async (req, res) => {
