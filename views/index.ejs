@@ -8,47 +8,86 @@
 </head>
 <body>
     <main class="page-shell">
-        <section class="app-card">
-            <div class="app-header">
-                <p class="eyebrow">Daily Planner</p>
-                <h1>Task Manager</h1>
-                <p class="subtitle">Keep track of what needs attention with a cleaner, focused workspace.</p>
-            </div>
+        <section class="home-layout">
+            <aside class="hero-card">
+                <div class="hero-badge">
+                    <span class="icon-circle soft-teal">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M7 4.75A2.75 2.75 0 0 0 4.25 7.5v9A2.75 2.75 0 0 0 7 19.25h10A2.75 2.75 0 0 0 19.75 16.5v-9A2.75 2.75 0 0 0 17 4.75H7Zm0 1.5h10c.69 0 1.25.56 1.25 1.25v9c0 .69-.56 1.25-1.25 1.25H7c-.69 0-1.25-.56-1.25-1.25v-9c0-.69.56-1.25 1.25-1.25Zm1.5 2.5a.75.75 0 0 0 0 1.5h7a.75.75 0 0 0 0-1.5h-7Zm0 4a.75.75 0 0 0 0 1.5H12a.75.75 0 0 0 0-1.5H8.5Z"></path>
+                        </svg>
+                    </span>
+                    <span>TaskFlow Home</span>
+                </div>
 
-            <form action="/add" method="POST" class="task-form">
-                <input
-                    type="text"
-                    name="task"
-                    placeholder="Enter a new task..."
-                    required
-                    aria-label="Task name"
-                >
-                <button type="submit">Add Task</button>
-            </form>
+                <div class="hero-copy">
+                    <p class="eyebrow">Home Overview</p>
+                    <h1>Your tasks, organized with clarity.</h1>
+                    <p class="subtitle">A focused home page for reviewing active items, with a separate space for creating new tasks when you need it.</p>
+                </div>
 
-            <div class="task-section">
-                <div class="task-section-header">
-                    <h2>Your Tasks</h2>
+                <div class="hero-stats">
+                    <div class="stat-card">
+                        <span class="stat-label">Total Tasks</span>
+                        <strong><%= tasks.length %></strong>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Workspace</span>
+                        <strong>Personal Board</strong>
+                    </div>
+                </div>
+
+                <a href="/create.html" class="primary-link">
+                    <span class="icon-circle solid-teal">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M11.25 5a.75.75 0 0 1 1.5 0v6.25H19a.75.75 0 0 1 0 1.5h-6.25V19a.75.75 0 0 1-1.5 0v-6.25H5a.75.75 0 0 1 0-1.5h6.25V5Z"></path>
+                        </svg>
+                    </span>
+                    <span>Create New Task</span>
+                </a>
+            </aside>
+
+            <section class="list-card">
+                <div class="section-header">
+                    <div>
+                        <p class="section-kicker">Live List</p>
+                        <h2>Current Tasks</h2>
+                    </div>
                     <span class="task-count"><%= tasks.length %> <%= tasks.length === 1 ? "task" : "tasks" %></span>
                 </div>
 
                 <% if (tasks.length === 0) { %>
-                    <div class="empty-state">
-                        <p>No tasks yet. Add your first one to get started.</p>
+                    <div class="empty-state large">
+                        <span class="icon-circle soft-sand">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6.75 4A2.75 2.75 0 0 0 4 6.75v10.5A2.75 2.75 0 0 0 6.75 20h10.5A2.75 2.75 0 0 0 20 17.25V9.56a.75.75 0 0 0-.22-.53l-4.81-4.81A.75.75 0 0 0 14.44 4H6.75Zm0 1.5h7.38l4.37 4.37v7.38c0 .69-.56 1.25-1.25 1.25H6.75c-.69 0-1.25-.56-1.25-1.25V6.75c0-.69.56-1.25 1.25-1.25Zm1.75 5.75a.75.75 0 0 0 0 1.5h7a.75.75 0 0 0 0-1.5h-7Zm0 3.5a.75.75 0 0 0 0 1.5h4.5a.75.75 0 0 0 0-1.5H8.5Z"></path>
+                            </svg>
+                        </span>
+                        <h3>No tasks yet</h3>
+                        <p>Start by creating your first task from the dedicated creation page.</p>
+                        <a href="/create.html" class="secondary-link">Go to Create Task</a>
                     </div>
                 <% } else { %>
                     <ul class="task-list">
                         <% tasks.forEach((task) => { %>
                             <li class="task-item">
-                                <div class="task-copy">
-                                    <span class="task-bullet"></span>
-                                    <span class="task-text"><%= task.task %></span>
+                                <div class="task-main">
+                                    <span class="task-icon">
+                                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                                            <path d="M19.28 6.97a.75.75 0 0 1 0 1.06l-8.48 8.5a.75.75 0 0 1-1.07 0L5.72 12.5a.75.75 0 0 1 1.06-1.06l3.48 3.47 7.95-7.94a.75.75 0 0 1 1.06 0Z"></path>
+                                        </svg>
+                                    </span>
+                                    <div class="task-copy">
+                                        <span class="task-label">Task</span>
+                                        <span class="task-text"><%= task.task %></span>
+                                    </div>
                                 </div>
 
                                 <form action="/delete" method="POST">
                                     <input type="hidden" name="id" value="<%= task.id %>">
                                     <button type="submit" class="delete-button" aria-label="Delete task">
-                                        <span aria-hidden="true">&#128465;</span>
+                                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                                            <path d="M9 3.75A1.75 1.75 0 0 0 7.25 5.5v.25H4.5a.75.75 0 0 0 0 1.5h.79l.89 10.3A2.75 2.75 0 0 0 8.92 20h6.16a2.75 2.75 0 0 0 2.74-2.45l.89-10.3h.79a.75.75 0 0 0 0-1.5h-2.75V5.5A1.75 1.75 0 0 0 15 3.75H9Zm6.25 2H8.75V5.5c0-.14.11-.25.25-.25h6c.14 0 .25.11.25.25v.25Zm-7.57 1.5.86 9.8c.05.65.59 1.15 1.24 1.15h6.16c.65 0 1.19-.5 1.24-1.15l.86-9.8H7.68Zm2.82 2.25c.41 0 .75.34.75.75v4.5a.75.75 0 0 1-1.5 0v-4.5c0-.41.34-.75.75-.75Zm3 0c.41 0 .75.34.75.75v4.5a.75.75 0 0 1-1.5 0v-4.5c0-.41.34-.75.75-.75Z"></path>
+                                        </svg>
                                         <span>Delete</span>
                                     </button>
                                 </form>
@@ -56,7 +95,7 @@
                         <% }) %>
                     </ul>
                 <% } %>
-            </div>
+            </section>
         </section>
     </main>
 </body>

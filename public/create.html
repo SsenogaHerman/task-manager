@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Task</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <main class="page-shell">
+        <section class="create-layout">
+            <aside class="info-card">
+                <div class="mini-badge">
+                    <span class="icon-circle soft-teal">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M11.25 5a.75.75 0 0 1 1.5 0v6.25H19a.75.75 0 0 1 0 1.5h-6.25V19a.75.75 0 0 1-1.5 0v-6.25H5a.75.75 0 0 1 0-1.5h6.25V5Z"></path>
+                        </svg>
+                    </span>
+                    <span>Create Space</span>
+                </div>
+
+                <div class="info-copy">
+                    <p class="eyebrow">New Task</p>
+                    <h1>Add a fresh task in a dedicated view.</h1>
+                    <p>This page is focused only on task creation so the home screen stays clean and easy to scan.</p>
+                </div>
+
+                <ul class="info-list">
+                    <li>
+                        <span class="icon-circle soft-sand">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M7 4.75A2.75 2.75 0 0 0 4.25 7.5v9A2.75 2.75 0 0 0 7 19.25h10A2.75 2.75 0 0 0 19.75 16.5v-9A2.75 2.75 0 0 0 17 4.75H7Zm0 1.5h10c.69 0 1.25.56 1.25 1.25v9c0 .69-.56 1.25-1.25 1.25H7c-.69 0-1.25-.56-1.25-1.25v-9c0-.69.56-1.25 1.25-1.25Zm1.5 2.5a.75.75 0 0 0 0 1.5h7a.75.75 0 0 0 0-1.5h-7Zm0 4a.75.75 0 0 0 0 1.5H12a.75.75 0 0 0 0-1.5H8.5Z"></path>
+                            </svg>
+                        </span>
+                        <span>Uses the same existing backend form action.</span>
+                    </li>
+                    <li>
+                        <span class="icon-circle soft-teal">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M19.28 6.97a.75.75 0 0 1 0 1.06l-8.48 8.5a.75.75 0 0 1-1.07 0L5.72 12.5a.75.75 0 0 1 1.06-1.06l3.48 3.47 7.95-7.94a.75.75 0 0 1 1.06 0Z"></path>
+                            </svg>
+                        </span>
+                        <span>Clear layout with soft colors and a modern form card.</span>
+                    </li>
+                </ul>
+            </aside>
+
+            <section class="create-card">
+                <div class="create-header">
+                    <p class="eyebrow">Create Task</p>
+                    <h1>What do you need to get done?</h1>
+                    <p>Write a concise task and submit it to your board.</p>
+                </div>
+
+                <form action="/add" method="POST" class="task-form">
+                    <div>
+                        <label for="task" class="field-label">Task name</label>
+                        <input
+                            id="task"
+                            type="text"
+                            name="task"
+                            placeholder="Example: Finish dashboard redesign"
+                            required
+                        >
+                    </div>
+
+                    <button type="submit" class="primary-link">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M11.25 5a.75.75 0 0 1 1.5 0v6.25H19a.75.75 0 0 1 0 1.5h-6.25V19a.75.75 0 0 1-1.5 0v-6.25H5a.75.75 0 0 1 0-1.5h6.25V5Z"></path>
+                        </svg>
+                        <span>Add Task</span>
+                    </button>
+                </form>
+
+                <div class="create-actions">
+                    <a href="/" class="ghost-link">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M10.78 18.53a.75.75 0 0 1-1.06 0l-5-5a.75.75 0 0 1 0-1.06l5-5a.75.75 0 1 1 1.06 1.06L7.06 12l3.72 3.72a.75.75 0 0 1 0 1.06Zm3.5 0a.75.75 0 0 1-1.06-1.06L16.94 12l-3.72-3.72a.75.75 0 1 1 1.06-1.06l5 5a.75.75 0 0 1 0 1.06l-5 5Z"></path>
+                        </svg>
+                        <span>Back to Home</span>
+                    </a>
+                </div>
+            </section>
+        </section>
+    </main>
+</body>
+</html>
