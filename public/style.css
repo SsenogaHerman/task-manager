@@ -81,7 +81,7 @@ svg {
 .create-layout {
     grid-template-columns: minmax(280px, 360px) minmax(0, 520px);
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
 }
 
 .hero-card,
@@ -95,6 +95,11 @@ svg {
     background: var(--surface);
     backdrop-filter: blur(14px);
     box-shadow: var(--shadow-xl);
+}
+
+.create-card,
+.info-card {
+    width: 100%;
 }
 
 .hero-card,
@@ -409,6 +414,7 @@ svg {
 
 .create-card {
     padding-top: 30px;
+    align-self: stretch;
 }
 
 .create-header {
@@ -507,11 +513,22 @@ svg {
     .create-layout {
         grid-template-columns: 1fr;
     }
+
+    .create-layout {
+        width: min(720px, 100%);
+        gap: 18px;
+    }
+
+    .info-card,
+    .create-card {
+        max-width: none;
+    }
 }
 
 @media (max-width: 640px) {
     .page-shell {
         padding: 22px 14px;
+        place-items: start center;
     }
 
     .hero-card,
@@ -520,6 +537,17 @@ svg {
     .info-card {
         padding: 22px;
         border-radius: 24px;
+    }
+
+    .create-layout {
+        width: 100%;
+        gap: 16px;
+    }
+
+    .hero-copy h1,
+    .create-card h1 {
+        font-size: clamp(1.9rem, 9vw, 2.5rem);
+        line-height: 1.1;
     }
 
     .section-header,
@@ -538,5 +566,55 @@ svg {
 
     .create-actions {
         justify-content: stretch;
+    }
+
+    .task-form input,
+    .task-form button {
+        padding: 15px 16px;
+        border-radius: 16px;
+    }
+
+    .mini-badge,
+    .hero-badge,
+    .task-count {
+        width: fit-content;
+        max-width: 100%;
+    }
+
+    .info-copy,
+    .create-header {
+        margin-top: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-shell {
+        padding: 16px 10px;
+    }
+
+    .hero-card,
+    .list-card,
+    .create-card,
+    .info-card {
+        padding: 18px;
+        border-radius: 20px;
+    }
+
+    .create-layout,
+    .home-layout {
+        gap: 14px;
+    }
+
+    .hero-copy h1,
+    .create-card h1,
+    .section-header h2 {
+        overflow-wrap: anywhere;
+    }
+
+    .primary-link,
+    .secondary-link,
+    .ghost-link,
+    .delete-button {
+        min-height: 46px;
     }
 }
