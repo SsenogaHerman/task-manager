@@ -91,7 +91,7 @@ svg {
     position: relative;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.58);
-    border-radius: var(--radius-xl);
+    border-radius: 0;
     background: var(--surface);
     backdrop-filter: blur(14px);
     box-shadow: var(--shadow-xl);
@@ -184,7 +184,7 @@ svg {
 
 .stat-card {
     padding: 16px 18px;
-    border-radius: var(--radius-md);
+    border-radius: 0;
     background: rgba(255, 255, 255, 0.76);
     border: 1px solid var(--border);
     box-shadow: var(--shadow-md);
@@ -292,7 +292,7 @@ svg {
     justify-content: space-between;
     gap: 18px;
     padding: 18px 20px;
-    border-radius: var(--radius-lg);
+    border-radius: 0;
     border: 1px solid var(--border);
     background: rgba(255, 255, 255, 0.9);
     box-shadow: var(--shadow-md);
@@ -397,7 +397,7 @@ svg {
     position: relative;
     z-index: 1;
     padding: 34px 24px;
-    border-radius: var(--radius-lg);
+    border-radius: 0;
     border: 1px dashed rgba(86, 121, 112, 0.25);
     background: var(--surface-muted);
     text-align: center;
@@ -536,7 +536,7 @@ svg {
     .create-card,
     .info-card {
         padding: 22px;
-        border-radius: 24px;
+        border-radius: 0;
     }
 
     .create-layout {
@@ -597,7 +597,7 @@ svg {
     .create-card,
     .info-card {
         padding: 18px;
-        border-radius: 20px;
+        border-radius: 0;
     }
 
     .create-layout,
