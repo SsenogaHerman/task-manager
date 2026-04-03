@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <main class="page-shell">
+        <section class="app-card">
+            <div class="app-header">
+                <p class="eyebrow">Daily Planner</p>
+                <h1>Task Manager</h1>
+                <p class="subtitle">Keep track of what needs attention with a cleaner, focused workspace.</p>
+            </div>
+
+            <form action="/add" method="POST" class="task-form">
+                <input
+                    type="text"
+                    name="task"
+                    placeholder="Enter a new task..."
+                    required
+                    aria-label="Task name"
+                >
+                <button type="submit">Add Task</button>
+            </form>
+
+            <div class="task-section">
+                <div class="task-section-header">
+                    <h2>Your Tasks</h2>
+                    <span class="task-count"><%= tasks.length %> <%= tasks.length === 1 ? "task" : "tasks" %></span>
+                </div>
+
+                <% if (tasks.length === 0) { %>
+                    <div class="empty-state">
+                        <p>No tasks yet. Add your first one to get started.</p>
+                    </div>
+                <% } else { %>
+                    <ul class="task-list">
+                        <% tasks.forEach((task) => { %>
+                            <li class="task-item">
+                                <div class="task-copy">
+                                    <span class="task-bullet"></span>
+                                    <span class="task-text"><%= task.task %></span>
+                                </div>
+
+                                <form action="/delete" method="POST">
+                                    <input type="hidden" name="id" value="<%= task.id %>">
+                                    <button type="submit" class="delete-button" aria-label="Delete task">
+                                        <span aria-hidden="true">&#128465;</span>
+                                        <span>Delete</span>
+                                    </button>
+                                </form>
+                            </li>
+                        <% }) %>
+                    </ul>
+                <% } %>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
